@@ -1,6 +1,7 @@
 module.exports = [
 	require('./JustMyLuck.boolean'),
 	require('./JustMyLuck.booleanWeighted'),
+	require('./JustMyLuck.chance'),
 	require('./JustMyLuck.combination'),
 	require('./JustMyLuck.combinationWeighted'),
 	require('./JustMyLuck.date'),

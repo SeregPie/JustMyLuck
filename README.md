@@ -107,6 +107,23 @@ The pseudo-random number generator.
 
 ### static and instance methods
 
+`.chance(p)`
+
+Tests the chance with a probability.
+
+| argument | description |
+| ---: | :--- |
+| `p` | A number as the probability. |
+
+Returns a boolean.
+
+```javascript
+let b = JustMyLuck.chance(0.4);
+// => either true (40%) or false (60%)
+```
+
+---
+
 `.boolean()`
 
 Generates a boolean.

@@ -2,6 +2,7 @@ import JustMyLuck from './JustMyLuck';
 
 import './JustMyLuck.boolean';
 import './JustMyLuck.booleanWeighted';
+import './JustMyLuck.chance';
 import './JustMyLuck.combination';
 import './JustMyLuck.combinationWeighted';
 import './JustMyLuck.date';
