@@ -1,16 +1,21 @@
-import './JustMyLuck.single';
+import './JustMyLuck.chance';
 import JustMyLuck from './JustMyLuck';
 
 import Array_fromExcept from './core/Array/fromExcept';
-import Array_prototype_combinations from './core/Array/prototype/combinations';
 
 JustMyLuck.extend({
-	combination(collection, maxCount) {
-		let array = Array_fromExcept(collection);
-		let arrayLength = array.length;
-		let count = Math.min(arrayLength, maxCount);
-		if (count > 0) {
-			return this.single(Array_prototype_combinations(array, count));
+	combination(array, k) {
+		array = Array_fromExcept(array);
+		if (k > 0) {
+			let n = array.length;
+			return array.filter(() => {
+				let b = this.chance(k / n);
+				if (b) {
+					k--;
+				}
+				n--;
+				return b;
+			});
 		}
 		return [];
 	},
