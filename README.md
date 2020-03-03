@@ -126,7 +126,7 @@ Generates a boolean using a weighted probability.
 
 | argument | description |
 | ---: | :--- |
-| `weight` | The weighted probability. |
+| `weight` | A number as the weighted probability. |
 
 Returns the generated boolean.
 
@@ -208,7 +208,7 @@ Generates a string using an alphabet.
 
 | argument | description |
 | ---: | :--- |
-| `alphabet` | An array-like or iterable object as the alphabet. |
+| `alphabet` | An array-like or iterable object of characters as the alphabet. |
 | `length` | A number as the length of the string to generate. |
 
 Returns the generated string.
@@ -267,7 +267,7 @@ Selects a value from a collection using a weighted probability.
 
 | argument | description |
 | ---: | :--- |
-| `weightedCollection` | An array-like or iterable object to select from. The collection consists of arrays as value-weight pairs. |
+| `weightedCollection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
 
 Returns the selected value.
 
@@ -302,7 +302,7 @@ Selects a combination of values without repetition from a collection using a wei
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. The collection consists of arrays as value-weight pairs. |
+| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
 | `maxCount` | A number as the maximum count of the values to select. |
 
 Returns the selected values as an array.
@@ -338,7 +338,7 @@ Selects a permutation of values without repetition from a collection using a wei
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. The collection consists of arrays as value-weight pairs. |
+| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
 | `maxCount` | A number as the maximum count of the values to select. |
 
 Returns the selected values as an array.
@@ -374,7 +374,7 @@ Selects a combination of values with repetition from a collection using a weight
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. The collection consists of arrays as value-weight pairs. |
+| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
 | `count` | A number as the count of the values to select. |
 
 Returns the selected values as an array.
@@ -410,7 +410,7 @@ Selects a permutation of values with repetition from a collection using a weight
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. The collection consists of arrays as value-weight pairs. |
+| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
 | `count` | A number as the count of the values to select. |
 
 Returns the selected values as an array.
