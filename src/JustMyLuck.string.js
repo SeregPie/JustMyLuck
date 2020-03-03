@@ -22,12 +22,12 @@ Object.assign(JustMyLuck, {
 });
 
 JustMyLuck.extend({
-	string(alphabet, length) {
-		alphabet = Array_fromExceptLike(alphabet);
+	string(array, k) {
+		array = Array_fromExceptLike(array);
 		let result = '';
-		while (length > 0) {
-			result += this.single(alphabet);
-			length--;
+		while (k > 0) {
+			result += this.single(array);
+			k--;
 		}
 		return result;
 	},

@@ -5,7 +5,6 @@ import Array_from from './core/Array/from';
 
 JustMyLuck.extend({
 	shuffle(collection) {
-		let array = Array_from(collection);
-		return this.shuffleInPlace(array);
+		return this.shuffleInPlace(Array_from(collection));
 	},
 });
