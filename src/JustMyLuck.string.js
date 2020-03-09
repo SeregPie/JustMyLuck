@@ -24,11 +24,18 @@ Object.assign(JustMyLuck, {
 JustMyLuck.extend({
 	string(array, k) {
 		array = Array_fromExceptLike(array);
-		let result = '';
-		while (k > 0) {
-			result += this.single(array);
-			k--;
+		let n = array.length;
+		if (n > 0) {
+			if (n > 1) {
+				let result = '';
+				for (; k > 0; k--) {
+					result += this.single(array);
+				}
+				return result;
+			}
+			let value = `${array[0]}`;
+			return value.repeat(k);
 		}
-		return result;
+		return '';
 	},
 });

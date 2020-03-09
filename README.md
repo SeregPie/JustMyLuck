@@ -295,14 +295,14 @@ let value = JustMyLuck.singleWeighted([['a', 3.3], ['b', 0.7], ['c', 1]]);
 
 ---
 
-`.combination(collection, maxCount)`
+`.combination(collection, count)`
 
 Selects a combination of values without repetition from a collection. Preserves the order of the values.
 
 | argument | description |
 | ---: | :--- |
 | `collection` | An array-like or iterable object to select from. |
-| `maxCount` | A number as the maximum count of the values to select. |
+| `count` | A number as the count of the values to select. |
 
 Returns the selected values as an array.
 
@@ -313,14 +313,14 @@ let values = JustMyLuck.combination(['a', 'b', 'c', 'd', 'e'], 3);
 
 ---
 
-`.combinationWeighted(weightedCollection, maxCount)`
+`.combinationWeighted(weightedCollection, count)`
 
 Selects a combination of values without repetition from a collection using a weighted probability. Preserves the order of the values.
 
 | argument | description |
 | ---: | :--- |
 | `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
-| `maxCount` | A number as the maximum count of the values to select. |
+| `count` | A number as the count of the values to select. |
 
 Returns the selected values as an array.
 
@@ -331,14 +331,14 @@ let values = JustMyLuck.combinationWeighted([['a', 2], ['b', 7], ['c', 8], ['d',
 
 ---
 
-`.permutation(collection, maxCount)`
+`.permutation(collection, count)`
 
 Selects a permutation of values without repetition from a collection.
 
 | argument | description |
 | ---: | :--- |
 | `collection` | An array-like or iterable object to select from. |
-| `maxCount` | A number as the maximum count of the values to select. |
+| `count` | A number as the count of the values to select. |
 
 Returns the selected values as an array.
 
@@ -349,14 +349,14 @@ let values = JustMyLuck.permutation(['a', 'b', 'c', 'd', 'e'], 3);
 
 ---
 
-`.permutationWeighted(weightedCollection, maxCount)`
+`.permutationWeighted(weightedCollection, count)`
 
 Selects a permutation of values without repetition from a collection using a weighted probability.
 
 | argument | description |
 | ---: | :--- |
 | `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
-| `maxCount` | A number as the maximum count of the values to select. |
+| `count` | A number as the count of the values to select. |
 
 Returns the selected values as an array.
 

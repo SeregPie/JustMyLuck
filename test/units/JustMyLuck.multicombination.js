@@ -15,14 +15,17 @@ module.exports = function() {
 			let stats = new Stats(Array_prototype_multicombinations(array, count));
 			Array.from({length: l}).forEach(() => {
 				let values = JustMyLuck.multicombination(array, count);
-				stats.inc(values);
+				try {
+					stats.inc(values);
+				} catch {
+					console.log(count, values);
+					throw 0;
+				}
 			});
 			assert(stats.deviation < permittedDeviation);
 		});
 	}
-	assert.throws(() => {
-		JustMyLuck.multicombination([], 1);
-	});
+	assert.deepEqual(JustMyLuck.multicombination([], 1), []);
 	assert.deepEqual(JustMyLuck.multicombination([1], 3), [1, 1, 1]);
 	assert.deepEqual(JustMyLuck.multicombination([1, 2, 3], 0), []);
 	assert.deepEqual(JustMyLuck.multicombination([1, 2, 3], -1), []);

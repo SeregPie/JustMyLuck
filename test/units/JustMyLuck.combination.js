@@ -15,12 +15,18 @@ module.exports = function() {
 			let stats = new Stats(Array_prototype_combinations(array, count));
 			Array.from({length: l}).forEach(() => {
 				let values = JustMyLuck.combination(array, count);
-				stats.inc(values);
+				try {
+					stats.inc(values);
+				} catch {
+					console.log(values, count);
+					throw 0;
+				}
 			});
 			assert(stats.deviation < permittedDeviation);
 		});
 	}
 	assert.deepEqual(JustMyLuck.combination([], 1), []);
+	assert.deepEqual(JustMyLuck.permutation([1], 3), [1]);
 	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 9), [1, 2, 3]);
 	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 0), []);
 	assert.deepEqual(JustMyLuck.combination([1, 2, 3], -1), []);

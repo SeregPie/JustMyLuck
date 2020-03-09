@@ -12,9 +12,8 @@ module.exports = function() {
 			assert([...string].every(char => alphabet.includes(char)));
 		});
 	}
+	assert.equal(JustMyLuck.string('', 1), '');
+	assert.equal(JustMyLuck.string('a', 3), 'aaa');
 	assert.equal(JustMyLuck.string('abc', 0), '');
-	assert.equal(JustMyLuck.string('abc', -4), '');
-	assert.throws(() => {
-		JustMyLuck.string('', 1);
-	});
+	assert.equal(JustMyLuck.string('abc', -1), '');
 };
