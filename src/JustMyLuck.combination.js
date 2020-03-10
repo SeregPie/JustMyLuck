@@ -4,7 +4,6 @@ import './JustMyLuck.single';
 import JustMyLuck from './JustMyLuck';
 
 import Array_fromExceptLike from './core/Array/fromExceptLike';
-import Array_from from './core/Array/from';
 
 JustMyLuck.extend({
 	combination(collection, k) {
@@ -24,7 +23,7 @@ JustMyLuck.extend({
 					return result;
 				}
 				if (array === collection) {
-					array = Array_from(array);
+					array = Array.from(array);
 				}
 				if (k > 1) {
 					for (let i = n - k; i > 0; i--, n--) {

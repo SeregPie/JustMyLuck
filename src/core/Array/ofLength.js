@@ -1,5 +1,3 @@
-import Array_from from './from';
-
 export default function(length) {
-	return Array_from({length});
+	return Array.from({length});
 }

@@ -2,7 +2,6 @@ import './JustMyLuck.integer';
 import './JustMyLuck.single';
 import JustMyLuck from './JustMyLuck';
 
-import Array_from from './core/Array/from';
 import Array_fromExceptLike from './core/Array/fromExceptLike';
 
 JustMyLuck.extend({
@@ -13,7 +12,7 @@ JustMyLuck.extend({
 		if (k > 0) {
 			if (n > 1 === k > 1) {
 				if (array === collection) {
-					array = Array_from(array);
+					array = Array.from(array);
 				}
 				if (k > 1) {
 					let result = [];
