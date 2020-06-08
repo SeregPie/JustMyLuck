@@ -17,9 +17,4 @@ JustMyLuck.extend({
 		}
 		return [];
 	},
-	itemsWeighted(...args) {
-		// eslint-disable-next-line no-console
-		console.warn('[JustMyLuck] DeprecationWarning: .itemsWeighted is deprecated. Use .combinationWeighted instead.');
-		return this.combinationWeighted(...args);
-	},
 });

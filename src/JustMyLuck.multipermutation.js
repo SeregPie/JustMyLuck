@@ -21,14 +21,4 @@ JustMyLuck.extend({
 		}
 		return [];
 	},
-	itemsRepeated(...args) {
-		// eslint-disable-next-line no-console
-		console.warn('[JustMyLuck] DeprecationWarning: .itemsRepeated is deprecated. Use .multipermutation instead.');
-		return this.multipermutation(...args);
-	},
-	permutationRepeated(...args) {
-		// eslint-disable-next-line no-console
-		console.warn('[JustMyLuck] DeprecationWarning: .permutationRepeated is deprecated. Use .multipermutation instead.');
-		return this.multipermutation(...args);
-	},
 });

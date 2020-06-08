@@ -12,9 +12,4 @@ JustMyLuck.extend({
 			v.map(v => v[1]).reduce((r, n) => r + n, 0),
 		]));
 	},
-	itemsRepeatedWeighted(...args) {
-		// eslint-disable-next-line no-console
-		console.warn('[JustMyLuck] DeprecationWarning: .itemsRepeatedWeighted is deprecated. Use .multipermutationWeighted instead.');
-		return this.multipermutationWeighted(...args);
-	},
 });

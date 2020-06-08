@@ -37,9 +37,4 @@ JustMyLuck.extend({
 		}
 		return [];
 	},
-	items(...args) {
-		// eslint-disable-next-line no-console
-		console.warn('[JustMyLuck] DeprecationWarning: .items is deprecated. Use .combination instead.');
-		return this.combination(...args);
-	},
 });
