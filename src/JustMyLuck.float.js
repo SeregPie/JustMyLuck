@@ -8,10 +8,11 @@ JustMyLuck.extend({
 				return min;
 			}
 			let x;
-			if ([0, 0].some(() => {
+			let f = (() => {
 				x = this.float(min, max);
 				return x === min;
-			})) {
+			});
+			if (f() || f()) {
 				if (this.boolean()) {
 					x = max;
 				}
