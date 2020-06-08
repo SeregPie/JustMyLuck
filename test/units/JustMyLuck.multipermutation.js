@@ -1,8 +1,8 @@
+require('lodash.multipermutations');
+let _ = require('lodash');
 let assert = require('assert').strict;
 
 let JustMyLuck = require('../../index');
-
-let Array_prototype_multipermutations = require('../core/Array/prototype/multipermutations');
 
 let l = require('../repetitionsCount');
 let permittedDeviation = require('../permittedDeviation');
@@ -12,7 +12,7 @@ module.exports = function() {
 	{
 		let array = [1, 2, 3];
 		[1, 2, 3, 4].forEach(count => {
-			let stats = new Stats(Array_prototype_multipermutations(array, count));
+			let stats = new Stats(_.multipermutations(array, count));
 			Array.from({length: l}).forEach(() => {
 				let values = JustMyLuck.multipermutation(array, count);
 				stats.inc(values);

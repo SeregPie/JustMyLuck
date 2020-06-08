@@ -1,8 +1,8 @@
+require('lodash.multicombinations');
+let _ = require('lodash');
 let assert = require('assert').strict;
 
 let JustMyLuck = require('../../index');
-
-let Array_prototype_multicombinations = require('../core/Array/prototype/multicombinations');
 
 let l = require('../repetitionsCount');
 let permittedDeviation = require('../permittedDeviation');
@@ -12,7 +12,7 @@ module.exports = function() {
 	{
 		let array = [1, 2, 3];
 		[1, 2, 3, 4].forEach(count => {
-			let stats = new Stats(Array_prototype_multicombinations(array, count));
+			let stats = new Stats(_.multicombinations(array, count));
 			Array.from({length: l}).forEach(() => {
 				let values = JustMyLuck.multicombination(array, count);
 				try {

@@ -1,8 +1,8 @@
+require('lodash.multicombinations');
+let _ = require('lodash');
 let assert = require('assert').strict;
 
 let JustMyLuck = require('../../index');
-
-let Array_prototype_multicombinations = require('../core/Array/prototype/multicombinations');
 
 let l = require('../repetitionsCount');
 let permittedDeviation = require('../permittedDeviation');
@@ -13,7 +13,7 @@ module.exports = function() {
 		let array = [1, 2, 3];
 		let weightedArray = array.map(value => [value, JustMyLuck.integer(1, 9)]);
 		[1, 2, 3, 4].forEach(count => {
-			let stats = new WeightedStats(Array_prototype_multicombinations(weightedArray, count).map(v => [
+			let stats = new WeightedStats(_.multicombinations(weightedArray, count).map(v => [
 				v.map(v => v[0]),
 				v.map(v => v[1]).reduce((r, n) => r + n, 0),
 			]));

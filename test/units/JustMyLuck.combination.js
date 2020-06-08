@@ -1,8 +1,8 @@
+require('lodash.combinations');
+let _ = require('lodash');
 let assert = require('assert').strict;
 
 let JustMyLuck = require('../../index');
-
-let Array_prototype_combinations = require('../core/Array/prototype/combinations');
 
 let l = require('../repetitionsCount');
 let permittedDeviation = require('../permittedDeviation');
@@ -12,7 +12,7 @@ module.exports = function() {
 	{
 		let array = [1, 2, 3, 4, 5];
 		[1, 2, 3, 4].forEach(count => {
-			let stats = new Stats(Array_prototype_combinations(array, count));
+			let stats = new Stats(_.combinations(array, count));
 			Array.from({length: l}).forEach(() => {
 				let values = JustMyLuck.combination(array, count);
 				try {

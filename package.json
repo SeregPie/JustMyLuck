@@ -50,6 +50,11 @@
 		"@rollup/plugin-buble": "^0.21.3",
 		"eslint": "^7.2.0",
 		"eslint-config-seregpie": "^1.0.1",
+		"lodash": "^4.17.15",
+		"lodash.combinations": "^18.10.0",
+		"lodash.multicombinations": "^1.0.0",
+		"lodash.multipermutations": "^1.0.0",
+		"lodash.permutations": "^1.0.0",
 		"rollup": "^2.14.0",
 		"rollup-plugin-terser": "^6.1.0"
 	}

@@ -1,8 +1,8 @@
+require('lodash.permutations');
+let _ = require('lodash');
 let assert = require('assert').strict;
 
 let JustMyLuck = require('../../index');
-
-let Array_prototype_permutations = require('../core/Array/prototype/permutations');
 
 let l = require('../repetitionsCount');
 let permittedDeviation = require('../permittedDeviation');
@@ -20,7 +20,7 @@ module.exports = function() {
 	}
 	{
 		let array = [1, 2, 3];
-		let stats = new Stats(Array_prototype_permutations(array, array.length));
+		let stats = new Stats(_.permutations(array, array.length));
 		Array.from({length: l}).forEach(() => {
 			let shuffledArray = JustMyLuck.shuffle(array);
 			stats.inc(shuffledArray);
