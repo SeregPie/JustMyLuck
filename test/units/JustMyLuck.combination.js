@@ -26,7 +26,7 @@ module.exports = function() {
 		});
 	}
 	assert.deepEqual(JustMyLuck.combination([], 1), []);
-	assert.deepEqual(JustMyLuck.permutation([1], 3), [1]);
+	assert.deepEqual(JustMyLuck.combination([1], 3), [1]);
 	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 9), [1, 2, 3]);
 	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 0), []);
 	assert.deepEqual(JustMyLuck.combination([1, 2, 3], -1), []);
