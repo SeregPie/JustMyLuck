@@ -21,7 +21,7 @@ JustMyLuck.extend({
 		}
 		if (min < max) {
 			let x = min + (max - min) * this.random();
-			return (x < max) ? x : min;
+			return (x > min && x < max) ? x : min;
 		}
 		throw new RangeError();
 	},
