@@ -24,12 +24,10 @@ module.exports = function() {
 			assert(stats.deviation < permittedDeviation);
 		});
 	}
-	assert.throws(() => {
-		JustMyLuck.multicombinationWeighted([], 1);
-	});
-	assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 3]], 3), ['a', 'a', 'a']);
+	assert.deepEqual(JustMyLuck.multicombinationWeighted([], 1), []);
+	assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 1]], 3), ['a', 'a', 'a']);
 	assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 3], ['b', 1], ['c', 2]], 0), []);
 	assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 3], ['b', 1], ['c', 2]], -1), []);
-	//assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 3], ['b', Infinity], ['c', 2]], 2), ['b', 'b']);
-	//assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 0], ['b', 1], ['c', 0]], 2), ['b', 'b']);
+	assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 3], ['b', Infinity], ['c', 2]], 2), ['b', 'b']);
+	assert.deepEqual(JustMyLuck.multicombinationWeighted([['a', 0], ['b', 1], ['c', 0]], 2), ['b', 'b']);
 };

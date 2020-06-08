@@ -25,11 +25,12 @@ module.exports = function() {
 		});
 	}
 	assert.deepEqual(JustMyLuck.combinationWeighted([], 1), []);
+	assert.deepEqual(JustMyLuck.combinationWeighted([['a', 1]], 3), ['a']);
 	assert.deepEqual(JustMyLuck.combinationWeighted([['a', 3], ['b', 1], ['c', 2]], 9), ['a', 'b', 'c']);
 	assert.deepEqual(JustMyLuck.combinationWeighted([['a', 3], ['b', 1], ['c', 2]], 0), []);
 	assert.deepEqual(JustMyLuck.combinationWeighted([['a', 3], ['b', 1], ['c', 2]], -1), []);
-	//assert.deepEqual(JustMyLuck.combinationWeighted([['a', Infinity], ['b', 1], ['c', Infinity]], 2), ['a', 'c']);
-	//assert.deepEqual(JustMyLuck.combinationWeighted([['a', Infinity], ['b', 1], ['c', Infinity]], 3), ['a', 'b', 'c']);
-	//assert.deepEqual(JustMyLuck.combinationWeighted([['a', 3], ['b', 0], ['c', 2]], 2), ['a', 'c']);
-	//assert.deepEqual(JustMyLuck.combinationWeighted([['a', 3], ['b', 0], ['c', 2]], 2), ['a', 'b', 'c']);
+	assert.deepEqual(JustMyLuck.combinationWeighted([['a', Infinity], ['b', 1], ['c', Infinity]], 2), ['a', 'c']);
+	assert.deepEqual(JustMyLuck.combinationWeighted([['a', Infinity], ['b', 1], ['c', Infinity]], 3), ['a', 'b', 'c']);
+	assert.deepEqual(JustMyLuck.combinationWeighted([['a', 3], ['b', 0], ['c', 2]], 2), ['a', 'c']);
+	assert.deepEqual(JustMyLuck.combinationWeighted([['a', 3], ['b', 0], ['c', 2]], 3), ['a', 'b', 'c']);
 };

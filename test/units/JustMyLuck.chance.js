@@ -22,5 +22,6 @@ module.exports = function() {
 	assert.equal(JustMyLuck.chance(0), false);
 	assert.equal(JustMyLuck.chance(-1), false);
 	assert.equal(JustMyLuck.chance(-4), false);
+	assert.equal(JustMyLuck.chance(1), true);
 	assert.equal(JustMyLuck.chance(Infinity), true);
 };
