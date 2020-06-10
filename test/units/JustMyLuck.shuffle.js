@@ -27,6 +27,6 @@ module.exports = function() {
 		});
 		assert(stats.deviation < permittedDeviation);
 	}
-	assert.deepEqual(JustMyLuck.shuffle([1]), [1]);
 	assert.deepEqual(JustMyLuck.shuffle([]), []);
+	assert.deepEqual(JustMyLuck.shuffle([1]), [1]);
 };

@@ -19,9 +19,12 @@ module.exports = function() {
 		});
 		assert(stats.deviation < permittedDeviation);
 	}
-	assert.equal(JustMyLuck.chance(0), false);
-	assert.equal(JustMyLuck.chance(-1), false);
+	assert.equal(JustMyLuck.chance(-Infinity), false);
 	assert.equal(JustMyLuck.chance(-4), false);
+	assert.equal(JustMyLuck.chance(-1), false);
+	assert.equal(JustMyLuck.chance(-1/2), false);
+	assert.equal(JustMyLuck.chance(0), false);
 	assert.equal(JustMyLuck.chance(1), true);
+	assert.equal(JustMyLuck.chance(3), true);
 	assert.equal(JustMyLuck.chance(Infinity), true);
 };

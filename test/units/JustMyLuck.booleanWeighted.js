@@ -19,8 +19,10 @@ module.exports = function() {
 		});
 		assert(stats.deviation < permittedDeviation);
 	}
-	assert.equal(JustMyLuck.booleanWeighted(0), false);
-	assert.equal(JustMyLuck.booleanWeighted(-1), false);
+	assert.equal(JustMyLuck.booleanWeighted(-Infinity), false);
 	assert.equal(JustMyLuck.booleanWeighted(-4), false);
+	assert.equal(JustMyLuck.booleanWeighted(-1), false);
+	assert.equal(JustMyLuck.booleanWeighted(-1/2), false);
+	assert.equal(JustMyLuck.booleanWeighted(0), false);
 	assert.equal(JustMyLuck.booleanWeighted(Infinity), true);
 };

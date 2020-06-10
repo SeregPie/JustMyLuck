@@ -20,8 +20,13 @@ module.exports = function() {
 			assert(stats.deviation < permittedDeviation);
 		});
 	}
+	assert.deepEqual(JustMyLuck.multipermutation([], -4), []);
+	assert.deepEqual(JustMyLuck.multipermutation([], 0), []);
 	assert.deepEqual(JustMyLuck.multipermutation([], 1), []);
+	assert.deepEqual(JustMyLuck.multipermutation([1], -4), []);
+	assert.deepEqual(JustMyLuck.multipermutation([1], 0), []);
+	assert.deepEqual(JustMyLuck.multipermutation([1], 1), [1]);
 	assert.deepEqual(JustMyLuck.multipermutation([1], 3), [1, 1, 1]);
+	assert.deepEqual(JustMyLuck.multipermutation([1, 2, 3], -4), []);
 	assert.deepEqual(JustMyLuck.multipermutation([1, 2, 3], 0), []);
-	assert.deepEqual(JustMyLuck.multipermutation([1, 2, 3], -1), []);
 };

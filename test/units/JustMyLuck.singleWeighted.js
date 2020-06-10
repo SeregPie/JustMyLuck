@@ -21,5 +21,5 @@ module.exports = function() {
 		JustMyLuck.singleWeighted([]);
 	});
 	assert.equal(JustMyLuck.singleWeighted([['a', 3], ['b', Infinity], ['c', 2]]), 'b');
-	assert.equal(JustMyLuck.singleWeighted([['a', 0], ['b', 1], ['c', 0]]), 'b');
+	assert.equal(JustMyLuck.singleWeighted([['a', 0], ['b', 1], ['c', -4]]), 'b');
 };

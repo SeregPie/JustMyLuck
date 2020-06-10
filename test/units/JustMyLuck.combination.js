@@ -25,9 +25,15 @@ module.exports = function() {
 			assert(stats.deviation < permittedDeviation);
 		});
 	}
+	assert.deepEqual(JustMyLuck.combination([], -4), []);
+	assert.deepEqual(JustMyLuck.combination([], 0), []);
 	assert.deepEqual(JustMyLuck.combination([], 1), []);
+	assert.deepEqual(JustMyLuck.combination([1], -4), []);
+	assert.deepEqual(JustMyLuck.combination([1], 0), []);
+	assert.deepEqual(JustMyLuck.combination([1], 1), [1]);
 	assert.deepEqual(JustMyLuck.combination([1], 3), [1]);
-	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 9), [1, 2, 3]);
+	assert.deepEqual(JustMyLuck.combination([1, 2, 3], -4), []);
 	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 0), []);
-	assert.deepEqual(JustMyLuck.combination([1, 2, 3], -1), []);
+	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 3), [1, 2, 3]);
+	assert.deepEqual(JustMyLuck.combination([1, 2, 3], 9), [1, 2, 3]);
 };
