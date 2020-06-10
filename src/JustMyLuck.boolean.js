@@ -2,6 +2,6 @@ import JustMyLuck from './JustMyLuck';
 
 JustMyLuck.extend({
 	boolean() {
-		return this.random() < 0.5;
+		return this.random() < 1/2;
 	},
 });

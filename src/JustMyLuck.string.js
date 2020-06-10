@@ -25,7 +25,7 @@ JustMyLuck.extend({
 	string(array, k) {
 		array = Array_fromExceptLike(array);
 		let n = array.length;
-		if (n > 0) {
+		if (k > 0) {
 			if (n > 1) {
 				let result = '';
 				for (; k > 0; k--) {
@@ -33,8 +33,10 @@ JustMyLuck.extend({
 				}
 				return result;
 			}
-			let value = `${array[0]}`;
-			return value.repeat(k);
+			if (n > 0) {
+				let value = `${array[0]}`;
+				return value.repeat(k);
+			}
 		}
 		return '';
 	},
