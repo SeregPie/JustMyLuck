@@ -9,28 +9,28 @@ import Array_prototype_sum from './core/Array/prototype/sum';
 JustMyLuck.extend({
 	singleWeighted(weightedCollection) {
 		let weightedArray = Array_fromExceptLike(weightedCollection);
-		let overweightedValues = [];
-		let normalWeightedArray = [];
-		let underweightedValues = [];
+		let array0 = [];
+		let array1 = [];
+		let array2 = [];
 		for (let i = 0, n = weightedArray.length; i < n; i++) {
 			let [value, weight] = weightedArray[i];
 			if (weight > 0) {
 				if (weight < Infinity) {
-					normalWeightedArray.push([value, weight]);
+					array1.push([value, weight]);
 				} else {
-					overweightedValues.push(value);
+					array0.push(value);
 				}
 			} else {
-				underweightedValues.push(value);
+				array2.push(value);
 			}
 		}
-		if (overweightedValues.length) {
-			return this.single(overweightedValues);
+		if (array0.length) {
+			return this.single(array0);
 		}
-		if (normalWeightedArray.length) {
+		if (array1.length) {
 			let values = [];
 			let weights = [];
-			normalWeightedArray
+			array1
 				.sort((a, b) => b[1] - a[1])
 				.forEach(([value, weight]) => {
 					values.push(value);
@@ -53,6 +53,6 @@ JustMyLuck.extend({
 			}
 			return values[index];
 		}
-		return this.single(underweightedValues);
+		return this.single(array2);
 	},
 });

@@ -9,30 +9,30 @@ import Array_prototype_sum from './core/Array/prototype/sum';
 JustMyLuck.extend({
 	multipermutationWeighted(weightedCollection, k) {
 		let weightedArray = Array_fromExceptLike(weightedCollection);
-		let overweightedValues = [];
-		let normalWeightedArray = [];
-		let underweightedValues = [];
+		let array0 = [];
+		let array1 = [];
+		let array2 = [];
 		for (let i = 0, n = weightedArray.length; i < n; i++) {
 			let [value, weight] = weightedArray[i];
 			if (weight > 0) {
 				if (weight < Infinity) {
-					normalWeightedArray.push([value, weight]);
+					array1.push([value, weight]);
 				} else {
-					overweightedValues.push(value);
+					array0.push(value);
 				}
 			} else {
-				underweightedValues.push(value);
+				array2.push(value);
 			}
 		}
-		if (overweightedValues.length) {
-			return this.multipermutation(overweightedValues, k);
+		if (array0.length) {
+			return this.multipermutation(array0, k);
 		}
-		if (normalWeightedArray.length) {
-			return this.singleWeighted(Array_prototype_multipermutations(normalWeightedArray, k).map(v => [
+		if (array1.length) {
+			return this.singleWeighted(Array_prototype_multipermutations(array1, k).map(v => [
 				v.map(v => v[0]),
 				Array_prototype_sum(v.map(v => v[1])),
 			]));
 		}
-		return this.multipermutation(underweightedValues, k);
+		return this.multipermutation(array2, k);
 	},
 });
