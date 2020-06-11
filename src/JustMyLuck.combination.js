@@ -23,11 +23,9 @@ JustMyLuck.extend({
 			if (array === collection) {
 				array = Array.from(array);
 			}
-			if (k < n) {
-				for (let i = n - k; i > 0; i--, n--) {
-					let index = this.integer(0, n);
-					array.splice(index, 1);
-				}
+			for (let i = n - k; i > 0; i--, n--) {
+				let index = this.integer(0, n);
+				array.splice(index, 1);
 			}
 			return array;
 		}
