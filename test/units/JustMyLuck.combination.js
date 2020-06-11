@@ -15,12 +15,7 @@ module.exports = function() {
 			let stats = new Stats(_.combinations(array, count));
 			Array.from({length: l}).forEach(() => {
 				let values = JustMyLuck.combination(array, count);
-				try {
-					stats.inc(values);
-				} catch {
-					console.log(values, count);
-					throw 0;
-				}
+				stats.inc(values);
 			});
 			assert(stats.deviation < permittedDeviation);
 		});
