@@ -450,7 +450,7 @@ Shuffles a collection.
 Returns the shuffled collection as an array.
 
 ```javascript
-let shuffledArray = JustMyLuck.shuffle([1, 2, 3, 4, 5]);
+let values = JustMyLuck.shuffle([1, 2, 3, 4, 5]);
 // => [4, 3, 2, 5, 1]
 ```
 
