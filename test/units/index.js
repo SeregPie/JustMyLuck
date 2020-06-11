@@ -3,7 +3,7 @@ module.exports = [
 	require('./JustMyLuck.booleanWeighted'),
 	require('./JustMyLuck.chance'),
 	require('./JustMyLuck.combination'),
-	//require('./JustMyLuck.combinationWeighted'),
+	require('./JustMyLuck.combinationWeighted'),
 	require('./JustMyLuck.date'),
 	require('./JustMyLuck.float'),
 	require('./JustMyLuck.integer'),
