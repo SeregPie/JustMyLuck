@@ -118,8 +118,18 @@ Tests the chance with a probability.
 Returns a boolean.
 
 ```javascript
-let b = JustMyLuck.chance(0.4);
-// => either true (40%) or false (60%)
+let x = JustMyLuck.chance(0.38);
+// => either true (38%) or false (62%)
+```
+
+```javascript
+console.log(JustMyLuck.chance(-Infinity)); // => false
+console.log(JustMyLuck.chance(-1.57)); // => false
+console.log(JustMyLuck.chance(0)); // => false
+
+console.log(JustMyLuck.chance(1)); // => true
+console.log(JustMyLuck.chance(42)); // => true
+console.log(JustMyLuck.chance(Infinity)); // => true
 ```
 
 ---
@@ -153,11 +163,10 @@ let boolean = JustMyLuck.booleanWeighted(3);
 ```
 
 ```javascript
-console.log(JustMyLuck.booleanWeighted(0) === false); // => true
-```
+console.log(JustMyLuck.booleanWeighted(-1.57)); // => false
+console.log(JustMyLuck.booleanWeighted(0)); // => false
 
-```javascript
-console.log(JustMyLuck.booleanWeighted(Infinity) === true); // => true
+console.log(JustMyLuck.booleanWeighted(Infinity)); // => true
 ```
 
 ---
@@ -232,7 +241,7 @@ Returns the generated string.
 
 ```javascript
 let string = JustMyLuck.string(JustMyLuck.alphabetic, JustMyLuck.integer(8, 16, true));
-// => 'eFEgkjWzTsTmA'
+// => e.g. 'eFEgkjWzTsTmA'
 ```
 
 ---
@@ -251,7 +260,7 @@ Returns the generated `Date` instance.
 
 ```javascript
 let date = JustMyLuck.date(new Date('01 Jan 1970'), new Date('04 Dec 1995'));
-// => '1989-08-26T01:02:17.622Z'
+// => e.g. '1989-08-26T01:02:17.622Z'
 ```
 
 ```javascript
@@ -293,6 +302,16 @@ let value = JustMyLuck.singleWeighted([['a', 3.3], ['b', 0.7], ['c', 1]]);
 // => either 'a' (66%), 'b' (14%) or 'c' (20%)
 ```
 
+```javascript
+let value = JustMyLuck.singleWeighted([['a', Infinity], ['b', 1], ['c', 1]]);
+// => always 'a'
+```
+
+```javascript
+let value = JustMyLuck.singleWeighted([['a', 0], ['b', 1], ['c', 1]]);
+// => either 'b' or 'c'
+```
+
 ---
 
 `.combination(collection, count)`
@@ -308,7 +327,7 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.combination(['a', 'b', 'c', 'd', 'e'], 3);
-// => ['a', 'b', 'd']
+// => e.g. ['a', 'b', 'd']
 ```
 
 ---
@@ -326,7 +345,12 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.combinationWeighted([['a', 2], ['b', 7], ['c', 8], ['d', 5], ['e', 8]], 3);
-// => ['a', 'c', 'e']
+// => e.g. ['a', 'c', 'e']
+```
+
+```javascript
+let values = JustMyLuck.combinationWeighted([['a', Infinity], ['b', 1], ['c', 0], ['d', 1], ['e', Infinity]], 3);
+// => 'a' and 'e' are always included, 'c' is never included
 ```
 
 ---
@@ -344,7 +368,7 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.permutation(['a', 'b', 'c', 'd', 'e'], 3);
-// => ['b', 'd', 'a']
+// => e.g. ['b', 'd', 'a']
 ```
 
 ---
@@ -362,7 +386,12 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.permutationWeighted([['a', 2], ['b', 7], ['c', 8], ['d', 5], ['e', 8]], 3);
-// => ['c', 'e', 'a']
+// => e.g. ['c', 'e', 'a']
+```
+
+```javascript
+let values = JustMyLuck.permutationWeighted([['a', Infinity], ['b', 1], ['c', 0], ['d', 1], ['e', Infinity]], 3);
+// => 'a' and 'e' are always included, 'c' is never included
 ```
 
 ---
@@ -380,7 +409,7 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.multicombination(['a', 'b'], 8);
-// => ['a', 'a', 'a', 'a', 'a', 'b', 'b', 'b']
+// => e.g. ['a', 'a', 'a', 'a', 'a', 'b', 'b', 'b']
 ```
 
 ---
@@ -398,7 +427,17 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.multicombinationWeighted([['a', 1], ['b', 3]], 8);
-// => ['a', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
+// => e.g. ['a', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
+```
+
+```javascript
+let values = JustMyLuck.multicombinationWeighted([['a', Infinity], ['b', 1]], 4);
+// => ['a', 'a', 'a', 'a']
+```
+
+```javascript
+let values = JustMyLuck.multicombinationWeighted([['a', 0], ['b', 1]], 4);
+// => ['b', 'b', 'b', 'b']
 ```
 
 ---
@@ -416,7 +455,7 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.multipermutation(['a', 'b'], 8);
-// => ['a', 'a', 'b', 'b', 'a', 'a', 'b', 'a']
+// => e.g. ['a', 'a', 'b', 'b', 'a', 'a', 'b', 'a']
 ```
 
 ---
@@ -434,7 +473,17 @@ Returns the selected values as an array.
 
 ```javascript
 let values = JustMyLuck.multipermutationWeighted([['a', 1], ['b', 3]], 8);
-// => ['b', 'b', 'b', 'a', 'b', 'b', 'b', 'b']
+// => e.g. ['b', 'b', 'b', 'a', 'b', 'b', 'b', 'b']
+```
+
+```javascript
+let values = JustMyLuck.multipermutationWeighted([['a', Infinity], ['b', 1]], 4);
+// => ['a', 'a', 'a', 'a']
+```
+
+```javascript
+let values = JustMyLuck.multipermutationWeighted([['a', 0], ['b', 1]], 4);
+// => ['b', 'b', 'b', 'b']
 ```
 
 ---
@@ -451,7 +500,7 @@ Returns the shuffled collection as an array.
 
 ```javascript
 let values = JustMyLuck.shuffle([1, 2, 3, 4, 5]);
-// => [4, 3, 2, 5, 1]
+// => e.g. [4, 3, 2, 5, 1]
 ```
 
 ---
