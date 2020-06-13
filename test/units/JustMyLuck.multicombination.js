@@ -29,4 +29,5 @@ module.exports = function() {
 	assert.deepEqual(JustMyLuck.multicombination([1], 3), [1, 1, 1]);
 	assert.deepEqual(JustMyLuck.multicombination([1, 2, 3], -4), []);
 	assert.deepEqual(JustMyLuck.multicombination([1, 2, 3], 0), []);
+	assert.equal(JustMyLuck.multicombination([1, 2, 3], 9).length, 9);
 };

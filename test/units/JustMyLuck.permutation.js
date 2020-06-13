@@ -29,4 +29,5 @@ module.exports = function() {
 	assert.deepEqual(JustMyLuck.permutation([1], 3), [1]);
 	assert.deepEqual(JustMyLuck.permutation([1, 2, 3], -4), []);
 	assert.deepEqual(JustMyLuck.permutation([1, 2, 3], 0), []);
+	assert.equal(JustMyLuck.permutation([1, 2, 3], 9).length, 3);
 };

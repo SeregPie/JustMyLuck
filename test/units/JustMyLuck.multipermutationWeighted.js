@@ -33,6 +33,7 @@ module.exports = function() {
 	assert.deepEqual(JustMyLuck.multipermutationWeighted([['a', 1]], 3), ['a', 'a', 'a']);
 	assert.deepEqual(JustMyLuck.multipermutationWeighted([['a', 3], ['b', 1], ['c', 2]], -4), []);
 	assert.deepEqual(JustMyLuck.multipermutationWeighted([['a', 3], ['b', 1], ['c', 2]], 0), []);
+	assert.equal(JustMyLuck.multipermutationWeighted([['a', 3], ['b', 1], ['c', 2]], 9).length, 9);
 	assert.deepEqual(JustMyLuck.multipermutationWeighted([['a', 3], ['b', Infinity], ['c', 2]], 2), ['b', 'b']);
 	assert.deepEqual(JustMyLuck.multipermutationWeighted([['a', 0], ['b', 1], ['c', -4]], 2), ['b', 'b']);
 };
