@@ -13,7 +13,7 @@ JustMyLuck.extend({
 				array = Array.from(array);
 			}
 			let result = [];
-			for (; k > 0; k--, n--) {
+			for (; k > 0 && n > 0; k--, n--) {
 				let index = this.integer(0, n);
 				let value = array.splice(index, 1)[0];
 				result.push(value);
