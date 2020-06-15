@@ -33,7 +33,14 @@ JustMyLuck.extend({
 		}
 		return this.pickMulticombination(lowerArray, k);
 	},
-	multicombinationWeighted(...args) {
-		return this.pickMulticombinationWeighted(...args);
-	},
+	multicombinationWeighted: (() => {
+		let warn = true;
+		return function(...args) {
+			if (warn) {
+				console.warn('[JustMyLuck] The function `.multicombinationWeighted` is deprecated. Please use `.pickMulticombinationWeighted` instead.');
+				warn = false;
+			}
+			return this.pickMulticombinationWeighted(...args);
+		};
+	})(),
 });

@@ -51,7 +51,14 @@ JustMyLuck.extend({
 		}
 		return values.filter((value, index) => indexes.has(index));
 	},
-	combinationWeighted(...args) {
-		return this.pickCombinationWeighted(...args);
-	},
+	combinationWeighted: (() => {
+		let warn = true;
+		return function(...args) {
+			if (warn) {
+				console.warn('[JustMyLuck] The function `.combinationWeighted` is deprecated. Please use `.pickCombinationWeighted` instead.');
+				warn = false;
+			}
+			return this.pickCombinationWeighted(...args);
+		};
+	})(),
 });

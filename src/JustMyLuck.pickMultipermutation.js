@@ -23,7 +23,14 @@ JustMyLuck.extend({
 		}
 		return [];
 	},
-	multipermutation(...args) {
-		return this.pickMultipermutation(...args);
-	},
+	multipermutation: (() => {
+		let warn = true;
+		return function(...args) {
+			if (warn) {
+				console.warn('[JustMyLuck] The function `.multipermutation` is deprecated. Please use `.pickMultipermutation` instead.');
+				warn = false;
+			}
+			return this.pickMultipermutation(...args);
+		};
+	})(),
 });

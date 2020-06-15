@@ -34,7 +34,14 @@ JustMyLuck.extend({
 		}
 		return [];
 	},
-	combination(...args) {
-		return this.pickCombination(...args);
-	},
+	combination: (() => {
+		let warn = true;
+		return function(...args) {
+			if (warn) {
+				console.warn('[JustMyLuck] The function `.combination` is deprecated. Please use `.pickCombination` instead.');
+				warn = false;
+			}
+			return this.pickCombination(...args);
+		};
+	})(),
 });

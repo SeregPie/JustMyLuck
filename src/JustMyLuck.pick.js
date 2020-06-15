@@ -8,7 +8,14 @@ JustMyLuck.extend({
 		let array = Array_fromExceptLike(collection);
 		return array[this.pickIndex(array)];
 	},
-	single(...args) {
-		return this.pick(...args);
-	},
+	single: (() => {
+		let warn = true;
+		return function(...args) {
+			if (warn) {
+				console.warn('[JustMyLuck] The function `.single` is deprecated. Please use `.pick` instead.');
+				warn = false;
+			}
+			return this.pick(...args);
+		};
+	})(),
 });

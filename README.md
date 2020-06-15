@@ -270,219 +270,236 @@ console.log(JustMyLuck.date(date, date, true).getTime() === date.getTime()); // 
 
 ---
 
-`.single(collection)`
+`.pick(collection)`
 
-Selects a value from a collection.
+Picks a value from a collection.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. |
+| `collection` | An array-like or iterable object to pick from. |
 
-Returns the selected value.
+Returns the picked value.
 
 ```javascript
-let value = JustMyLuck.single(['a', 'b', 'c']);
+let value = JustMyLuck.pick(['a', 'b', 'c']);
 // => either 'a', 'b' or 'c'
 ```
 
 ---
 
-`.singleWeighted(weightedCollection)`
+`.pickWeighted(weightedCollection)`
 
-Selects a value from a collection using a weighted probability.
+Picks a value from a collection using a weighted probability.
 
 | argument | description |
 | ---: | :--- |
-| `weightedCollection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
+| `weightedCollection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array where the first item is the value and the second item is a number as the weighted probability for this value to be picked. |
 
-Returns the selected value.
+Returns the picked value.
 
 ```javascript
-let value = JustMyLuck.singleWeighted([['a', 3.3], ['b', 0.7], ['c', 1]]);
+let value = JustMyLuck.pickWeighted([['a', 3.3], ['b', 0.7], ['c', 1]]);
 // => either 'a' (66%), 'b' (14%) or 'c' (20%)
 ```
 
 ```javascript
-let value = JustMyLuck.singleWeighted([['a', Infinity], ['b', 1], ['c', 1]]);
+let value = JustMyLuck.pickWeighted([['a', Infinity], ['b', 1], ['c', 1]]);
 // => always 'a'
 ```
 
 ```javascript
-let value = JustMyLuck.singleWeighted([['a', 0], ['b', 1], ['c', 1]]);
+let value = JustMyLuck.pickWeighted([['a', 0], ['b', 1], ['c', 1]]);
 // => either 'b' or 'c'
 ```
 
 ---
 
-`.combination(collection, count)`
+`.pickIndex(array)`
 
-Selects a combination of values without repetition from a collection. Preserves the order of the values.
+Picks an index from an array.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. |
-| `count` | A number as the count of the values to select. |
+| `array` | An array-like object to pick the index from. |
 
-Returns the selected values as an array.
+Returns the picked index.
 
 ```javascript
-let values = JustMyLuck.combination(['a', 'b', 'c', 'd', 'e'], 3);
+let index = JustMyLuck.pickIndex(['a', 'b', 'c']);
+// => either 0, 1 or 2
+```
+
+---
+
+`.pickCombination(collection, count)`
+
+Picks a combination of values without repetition from a collection. Preserves the order of the values.
+
+| argument | description |
+| ---: | :--- |
+| `collection` | An array-like or iterable object to pick from. |
+| `count` | A number as the count of the values to pick. |
+
+Returns the picked values as an array.
+
+```javascript
+let values = JustMyLuck.pickCombination(['a', 'b', 'c', 'd', 'e'], 3);
 // => e.g. ['a', 'b', 'd']
 ```
 
 ---
 
-`.combinationWeighted(weightedCollection, count)`
+`.pickCombinationWeighted(weightedCollection, count)`
 
-Selects a combination of values without repetition from a collection using a weighted probability. Preserves the order of the values.
+Picks a combination of values without repetition from a collection using a weighted probability. Preserves the order of the values.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
-| `count` | A number as the count of the values to select. |
+| `weightedCollection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array where the first item is the value and the second item is a number as the weighted probability for this value to be picked. |
+| `count` | A number as the count of the values to pick. |
 
-Returns the selected values as an array.
+Returns the picked values as an array.
 
 ```javascript
-let values = JustMyLuck.combinationWeighted([['a', 2], ['b', 7], ['c', 8], ['d', 5], ['e', 8]], 3);
+let values = JustMyLuck.pickCombinationWeighted([['a', 2], ['b', 7], ['c', 8], ['d', 5], ['e', 8]], 3);
 // => e.g. ['a', 'c', 'e']
 ```
 
 ```javascript
-let values = JustMyLuck.combinationWeighted([['a', Infinity], ['b', 1], ['c', 0], ['d', 1], ['e', Infinity]], 3);
+let values = JustMyLuck.pickCombinationWeighted([['a', Infinity], ['b', 1], ['c', 0], ['d', 1], ['e', Infinity]], 3);
 // => 'a' and 'e' are always included, 'c' is never included
 ```
 
 ---
 
-`.permutation(collection, count)`
+`.pickPermutation(collection, count)`
 
-Selects a permutation of values without repetition from a collection.
+Picks a permutation of values without repetition from a collection.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. |
-| `count` | A number as the count of the values to select. |
+| `collection` | An array-like or iterable object to pick from. |
+| `count` | A number as the count of the values to pick. |
 
-Returns the selected values as an array.
+Returns the picked values as an array.
 
 ```javascript
-let values = JustMyLuck.permutation(['a', 'b', 'c', 'd', 'e'], 3);
+let values = JustMyLuck.pickPermutation(['a', 'b', 'c', 'd', 'e'], 3);
 // => e.g. ['b', 'd', 'a']
 ```
 
 ---
 
-`.permutationWeighted(weightedCollection, count)`
+`.pickPermutationWeighted(weightedCollection, count)`
 
-Selects a permutation of values without repetition from a collection using a weighted probability.
+Picks a permutation of values without repetition from a collection using a weighted probability.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
-| `count` | A number as the count of the values to select. |
+| `weightedCollection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array where the first item is the value and the second item is a number as the weighted probability for this value to be picked. |
+| `count` | A number as the count of the values to pick. |
 
-Returns the selected values as an array.
+Returns the picked values as an array.
 
 ```javascript
-let values = JustMyLuck.permutationWeighted([['a', 2], ['b', 7], ['c', 8], ['d', 5], ['e', 8]], 3);
+let values = JustMyLuck.pickPermutationWeighted([['a', 2], ['b', 7], ['c', 8], ['d', 5], ['e', 8]], 3);
 // => e.g. ['c', 'e', 'a']
 ```
 
 ```javascript
-let values = JustMyLuck.permutationWeighted([['a', Infinity], ['b', 1], ['c', 0], ['d', 1], ['e', Infinity]], 3);
+let values = JustMyLuck.pickPermutationWeighted([['a', Infinity], ['b', 1], ['c', 0], ['d', 1], ['e', Infinity]], 3);
 // => 'a' and 'e' are always included, 'c' is never included
 ```
 
 ---
 
-`.multicombination(collection, count)`
+`.pickMulticombination(collection, count)`
 
-Selects a combination of values with repetition from a collection. Preserves the order of the values.
+Picks a combination of values with repetition from a collection. Preserves the order of the values.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. |
-| `count` | A number as the count of the values to select. |
+| `collection` | An array-like or iterable object to pick from. |
+| `count` | A number as the count of the values to pick. |
 
-Returns the selected values as an array.
+Returns the picked values as an array.
 
 ```javascript
-let values = JustMyLuck.multicombination(['a', 'b'], 8);
+let values = JustMyLuck.pickMulticombination(['a', 'b'], 8);
 // => e.g. ['a', 'a', 'a', 'a', 'a', 'b', 'b', 'b']
 ```
 
 ---
 
-`.multicombinationWeighted(weightedCollection, count)`
+`.pickMulticombinationWeighted(weightedCollection, count)`
 
-Selects a combination of values with repetition from a collection using a weighted probability. Preserves the order of the values.
+Picks a combination of values with repetition from a collection using a weighted probability. Preserves the order of the values.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
-| `count` | A number as the count of the values to select. |
+| `weightedCollection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array where the first item is the value and the second item is a number as the weighted probability for this value to be picked. |
+| `count` | A number as the count of the values to pick. |
 
-Returns the selected values as an array.
+Returns the picked values as an array.
 
 ```javascript
-let values = JustMyLuck.multicombinationWeighted([['a', 1], ['b', 3]], 8);
+let values = JustMyLuck.pickMulticombinationWeighted([['a', 1], ['b', 3]], 8);
 // => e.g. ['a', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
 ```
 
 ```javascript
-let values = JustMyLuck.multicombinationWeighted([['a', Infinity], ['b', 1]], 4);
+let values = JustMyLuck.pickMulticombinationWeighted([['a', Infinity], ['b', 1]], 4);
 // => ['a', 'a', 'a', 'a']
 ```
 
 ```javascript
-let values = JustMyLuck.multicombinationWeighted([['a', 0], ['b', 1]], 4);
+let values = JustMyLuck.pickMulticombinationWeighted([['a', 0], ['b', 1]], 4);
 // => ['b', 'b', 'b', 'b']
 ```
 
 ---
 
-`.multipermutation(collection, count)`
+`.pickMultipermutation(collection, count)`
 
-Selects a permutation of values with repetition from a collection.
+Picks a permutation of values with repetition from a collection.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object to select from. |
-| `count` | A number as the count of the values to select. |
+| `collection` | An array-like or iterable object to pick from. |
+| `count` | A number as the count of the values to pick. |
 
-Returns the selected values as an array.
+Returns the picked values as an array.
 
 ```javascript
-let values = JustMyLuck.multipermutation(['a', 'b'], 8);
+let values = JustMyLuck.pickMultipermutation(['a', 'b'], 8);
 // => e.g. ['a', 'a', 'b', 'b', 'a', 'a', 'b', 'a']
 ```
 
 ---
 
-`.multipermutationWeighted(weightedCollection, count)`
+`.pickMultipermutationWeighted(weightedCollection, count)`
 
-Selects a permutation of values with repetition from a collection using a weighted probability.
+Picks a permutation of values with repetition from a collection using a weighted probability.
 
 | argument | description |
 | ---: | :--- |
-| `collection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array of length 2. The first value is actually a value to select. The second value is a number as the weighted probability. |
-| `count` | A number as the count of the values to select. |
+| `weightedCollection` | An array-like or iterable object of value-weight pairs. A value-weight pair is an array where the first item is the value and the second item is a number as the weighted probability for this value to be picked. |
+| `count` | A number as the count of the values to pick. |
 
-Returns the selected values as an array.
+Returns the picked values as an array.
 
 ```javascript
-let values = JustMyLuck.multipermutationWeighted([['a', 1], ['b', 3]], 8);
+let values = JustMyLuck.pickMultipermutationWeighted([['a', 1], ['b', 3]], 8);
 // => e.g. ['b', 'b', 'b', 'a', 'b', 'b', 'b', 'b']
 ```
 
 ```javascript
-let values = JustMyLuck.multipermutationWeighted([['a', Infinity], ['b', 1]], 4);
+let values = JustMyLuck.pickMultipermutationWeighted([['a', Infinity], ['b', 1]], 4);
 // => ['a', 'a', 'a', 'a']
 ```
 
 ```javascript
-let values = JustMyLuck.multipermutationWeighted([['a', 0], ['b', 1]], 4);
+let values = JustMyLuck.pickMultipermutationWeighted([['a', 0], ['b', 1]], 4);
 // => ['b', 'b', 'b', 'b']
 ```
 

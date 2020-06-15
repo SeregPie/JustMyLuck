@@ -52,7 +52,14 @@ JustMyLuck.extend({
 		}
 		return this.pick(lowerArray);
 	},
-	singleWeighted(...args) {
-		return this.pickWeighted(...args);
-	},
+	singleWeighted: (() => {
+		let warn = true;
+		return function(...args) {
+			if (warn) {
+				console.warn('[JustMyLuck] The function `.singleWeighted` is deprecated. Please use `.pickWeighted` instead.');
+				warn = false;
+			}
+			return this.pickWeighted(...args);
+		};
+	})(),
 });
