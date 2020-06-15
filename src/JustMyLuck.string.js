@@ -1,4 +1,4 @@
-import './JustMyLuck.single';
+import './JustMyLuck.pick';
 import JustMyLuck from './JustMyLuck';
 
 import Array_fromExceptLike from './core/Array/fromExceptLike';
@@ -22,14 +22,14 @@ Object.assign(JustMyLuck, {
 });
 
 JustMyLuck.extend({
-	string(array, k) {
-		array = Array_fromExceptLike(array);
+	string(collection, k) {
+		let array = Array_fromExceptLike(collection);
 		let n = array.length;
 		if (k > 0) {
 			if (n > 1) {
 				let result = '';
 				for (; k > 0; k--) {
-					result += this.single(array);
+					result += this.pick(array);
 				}
 				return result;
 			}

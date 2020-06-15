@@ -1,45 +1,42 @@
 import './JustMyLuck.float';
-import './JustMyLuck.single';
+import './JustMyLuck.pick';
 import JustMyLuck from './JustMyLuck';
 
-import Array_fromExceptLike from './core/Array/fromExceptLike';
+import Array_fromExcept from './core/Array/fromExcept';
 import Array_prototype_last from './core/Array/prototype/last';
 import Array_prototype_sum from './core/Array/prototype/sum';
 
 JustMyLuck.extend({
-	singleWeighted(weightedCollection) {
-		let weightedArray = Array_fromExceptLike(weightedCollection);
-		let array0 = [];
-		let array1 = [];
-		let array2 = [];
-		for (let i = 0, n = weightedArray.length; i < n; i++) {
-			let [value, weight] = weightedArray[i];
+	pickWeighted(weightedCollection) {
+		let normalWeightedArray = [];
+		let upperArray = [];
+		let lowerArray = [];
+		Array_fromExcept(weightedCollection).forEach(([value, weight]) => {
 			if (weight > 0) {
 				if (weight < Infinity) {
-					array1.push([value, weight]);
+					normalWeightedArray.push([value, weight]);
 				} else {
-					array0.push(value);
+					upperArray.push(value);
 				}
 			} else {
-				array2.push(value);
+				lowerArray.push(value);
 			}
+		});
+		if (upperArray.length) {
+			return this.pick(upperArray);
 		}
-		if (array0.length) {
-			return this.single(array0);
-		}
-		if (array1.length) {
-			let values = [];
+		if (normalWeightedArray.length) {
 			let weights = [];
-			array1
+			let array = normalWeightedArray
 				.sort((a, b) => b[1] - a[1])
-				.forEach(([value, weight]) => {
-					values.push(value);
+				.map(([value, weight]) => {
 					weights.push(weight);
+					return value;
 				});
 			let maxWeight = weights[0];
 			let minWeight = Array_prototype_last(weights);
 			if (minWeight === maxWeight) {
-				return this.single(values);
+				return this.pick(array);
 			}
 			weights = weights.map(weight => weight / maxWeight);
 			let totalWeight = Array_prototype_sum(weights);
@@ -51,8 +48,11 @@ JustMyLuck.extend({
 			if (index < 0) {
 				index = 0;
 			}
-			return values[index];
+			return array[index];
 		}
-		return this.single(array2);
+		return this.pick(lowerArray);
+	},
+	singleWeighted(...args) {
+		return this.pickWeighted(...args);
 	},
 });

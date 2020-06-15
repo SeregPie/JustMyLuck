@@ -12,14 +12,14 @@ module.exports = function() {
 		let weightedArray = array.map(value => [value, JustMyLuck.integer(1, 9)]);
 		let stats = new WeightedStats(weightedArray);
 		Array.from({length: l}).forEach(() => {
-			let value = JustMyLuck.singleWeighted(weightedArray);
+			let value = JustMyLuck.pickWeighted(weightedArray);
 			stats.inc(value);
 		});
 		assert(stats.deviation < permittedDeviation);
 	}
 	assert.throws(() => {
-		JustMyLuck.singleWeighted([]);
+		JustMyLuck.pickWeighted([]);
 	});
-	assert.equal(JustMyLuck.singleWeighted([['a', 3], ['b', Infinity], ['c', 2]]), 'b');
-	assert.equal(JustMyLuck.singleWeighted([['a', 0], ['b', 1], ['c', -4]]), 'b');
+	assert.equal(JustMyLuck.pickWeighted([['a', 3], ['b', Infinity], ['c', 2]]), 'b');
+	assert.equal(JustMyLuck.pickWeighted([['a', 0], ['b', 1], ['c', -4]]), 'b');
 };

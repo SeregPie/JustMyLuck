@@ -1,24 +1,18 @@
-import './JustMyLuck.chance';
+import './JustMyLuck.pick';
 import JustMyLuck from './JustMyLuck';
 
 import Array_fromExceptLike from './core/Array/fromExceptLike';
 import Array_ofLength from './core/Array/ofLength';
 
 JustMyLuck.extend({
-	multicombination(array, k) {
-		array = Array_fromExceptLike(array);
+	pickMultipermutation(collection, k) {
+		let array = Array_fromExceptLike(collection);
 		let n = array.length;
 		if (k > 0) {
 			if (n > 1) {
 				let result = [];
-				for (let i = 0; k > 0 && n > 0;) {
-					if (this.chance(k / (k + n - 1))) {
-						result.push(array[i]);
-						k--;
-					} else {
-						i++;
-						n--;
-					}
+				for (; k > 0; k--) {
+					result.push(this.pick(array));
 				}
 				return result;
 			}
@@ -28,5 +22,8 @@ JustMyLuck.extend({
 			}
 		}
 		return [];
+	},
+	multipermutation(...args) {
+		return this.pickMultipermutation(...args);
 	},
 });
