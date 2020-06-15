@@ -46,7 +46,7 @@
 		"lodash.multicombinations": "^1.0.0",
 		"lodash.multipermutations": "^1.0.0",
 		"lodash.permutations": "^1.0.0",
-		"rollup": "^2.14.0",
+		"rollup": "^2.16.1",
 		"rollup-plugin-terser": "^6.1.0"
 	}
 }
